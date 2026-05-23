@@ -721,7 +721,7 @@ class AirCanvas {
     // Check if swiping on an object
     const hitObject = this.objectManager.getObjectAtPosition(position.x, position.y);
     if (hitObject) {
-      this.objectManager.removeObject(hitObject);
+      void hitObject; // swipe no longer removes objects (prevents accidental deletion)
     }
   }
 
