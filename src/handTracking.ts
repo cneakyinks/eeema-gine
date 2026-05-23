@@ -16,7 +16,7 @@ export class HandTracker {
     this.videoElement = videoElement;
 
     this.hands = new Hands({
-      locateFile: (file) => {
+      locateFile: (file: string) => {
         return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
       }
     });
@@ -28,7 +28,7 @@ export class HandTracker {
       minTrackingConfidence: 0.5
     });
 
-    this.hands.onResults((results) => this.onResults(results));
+    this.hands.onResults((results: Results) => this.onResults(results));
   }
 
   setCanvasSize(width: number, height: number): void {
