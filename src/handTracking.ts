@@ -22,8 +22,8 @@ export class HandTracker {
     });
 
     this.hands.setOptions({
-      maxNumHands: 1,
-      modelComplexity: 1,  // Better accuracy model (less jitter)
+      maxNumHands: 2,
+      modelComplexity: 0,  // Better accuracy model (less jitter)
       minDetectionConfidence: 0.6,
       minTrackingConfidence: 0.5
     });
@@ -91,7 +91,7 @@ export class HandTracker {
         if (!this.isRunning) return;
 
         if (this.videoElement.readyState >= 2) {
-          await this.hands.send({ image: this.videoElement });
+          this.hands.send({ image: this.videoElement });
         }
 
         this.animationId = requestAnimationFrame(processFrame);
