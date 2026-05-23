@@ -1,10 +1,10 @@
-import { Hands, Results } from '@mediapipe/hands';
+import type { Results } from '@mediapipe/hands'; declare const Hands: any;
 import { HandLandmarks, Point2D } from './types';
 
 export type HandResultsCallback = (landmarks: HandLandmarks | null) => void;
 
 export class HandTracker {
-  private hands: Hands;
+  private hands: any;
   private videoElement: HTMLVideoElement;
   private callback: HandResultsCallback | null = null;
   private isRunning = false;
